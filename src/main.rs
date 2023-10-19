@@ -1,15 +1,19 @@
 #[macro_use] extern crate worldgen;
 
+mod rand_seed;
+
 use worldgen::noise::perlin::PerlinNoise;
 use worldgen::noisemap::{NoiseMapGenerator, NoiseMap, Seed, Step, Size};
 use worldgen::world::{World, Tile};
 use worldgen::world::tile::{Constraint, ConstraintType};
+use rand_seed::rand_seed;
+
 
 fn main() {
     let noise = PerlinNoise::new();
 
     let nm1 = NoiseMap::new(noise)
-        .set(Seed::of("Hello?"))
+        .set(Seed::of(rand_seed(6)))
         .set(Step::of(0.005, 0.005));
 
     let nm2 = NoiseMap::new(noise)
@@ -19,7 +23,7 @@ fn main() {
     let nm = Box::new(nm1 + nm2 * 3);
 
     let world = World::new()
-        .set(Size::of(80, 50))
+        .set(Size::of(128, 128))
 
         // Water
         .add(Tile::new('~')
