@@ -3,6 +3,7 @@
 	<name>bevy-tile-world</name>
 	<comment></comment>
 	<projects>
+		<project>bevy</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>

@@ -6,5 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+bevy = "0.11"
+bevy_tilemap = "0.4"
+# To serialise via serde: bevy_tilemap = { version = "0.4", features = ["types"] } 
+#     or use extra types:                { version = "0.4", features = ["serialize"] }
+
 worldgen = "0.5.3"
 rand = { version = "0.8.5", features = ["small_rng"] }
